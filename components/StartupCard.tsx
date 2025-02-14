@@ -5,8 +5,11 @@ import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
+import { Author, Startup } from "@/sanity/types";
 
-const StartupCard = ({ post }: { post: any }) => {
+export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
+
+const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   const {
     _createdAt,
     views,
